@@ -3,7 +3,7 @@ module apieces() {
 		if (APieces==1) endstopY();
 		if (APieces==10) Zmotor();
 	} else { // show parts on full setup with or without printer
-		if (Pieces ==0) {
+		if (Pieces ==0 || Pres  >1 ) {
 			if (APieces==1 || Pres  >=2) translate(Position_yendstop[Prin]) rotate([-90, 90,0 ]) endstopY();
 			if (APieces==10 || Pres  >=2) translate(Position_zmotor[Prin]) rotate([-180, 0,0 ]) Zmotor();
 		}
