@@ -1,0 +1,1 @@
+include <cr10 z moteur_2020_or_2040.scad>
