@@ -35,7 +35,7 @@ module Display(Bx,By,Bz,Dtype) {
 				translate([121,61,-1]) cylinder(h=10,d=hole_size,$fn=80);//pcb holes
 			}
 		}
-        if (PWR_button) {
+        	if (PWR_button) {
 			if (Long<200) alert(1,"Power_button"); else {//alert for insuficient lenght
 				translate([-By/2+138,-22.5,0])  // Power button 
 				union () {
