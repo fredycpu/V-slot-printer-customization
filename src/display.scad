@@ -1,19 +1,22 @@
 module Display(Bx,By,Bz,Dtype) {
  hole_size = 2; //default holes size for pcb
  
-    translate([-55,-8,-6]) cube ([60,12,6]);
-    translate([-55,0,-6]) cube ([8,By,6]);
-    translate([-55,By-5,-6]) cube ([60,12,6]);
-    translate([0,By+1,-2]) rotate ([-90,-180,00]) wedge(90, 55, 65, 5);
-    translate([0,-8,-2]) rotate ([-90,-180,00]) wedge(90, 55, 65, 5);
-    translate([-30,By/2,35])
+    translate([-47,-8,-6]) cube ([47,12,6]);
+    translate([-47,0,-6]) cube ([8,By,6]);
+    translate([-47,By-5,-6]) cube ([47,12,6]);
+    translate([0,By+1,-2]) rotate ([-90,-180,00]) wedge(90, 45, 65, 5);
+    translate([0,-8,-2]) rotate ([-90,-180,00]) wedge(90, 45, 65, 5);
+    translate([-20,By/2,35])
 	rotate ([45,0,-90])
+	
 	difference () {
 		roundedcube([By+20,90,20], true,3, "all");
-		translate([0,-4.9,-10]) cube ([By,70,20],center=true); // cylinder(h=8,d=30.1,$fn=80);  
-		
-			if (Long<165) alert(1,"Display"); else {  //alert for insuficient lenght
+		if (Long<165) alert(1,"Display"); else {  //alert for insuficient lenght
+			
+			translate([0,-4.9,-10]) cube ([By,70,20],center=true); // cylinder(h=8,d=30.1,$fn=80);  
 			rotate ([-45,0,0]) translate([-By/2-20,0,29]) cube ([By+30,40.2,10]); // crop top	
+			rotate ([-45,0,0]) translate([-By/2-20,20.5,3]) cube ([By+30,40.2,60]); // crop end	
+			
 		
 			translate([-By/2,30,-16])  rotate ([90,0,90])wedge(90, 18,18, By);
 			translate([-By/2,-35,0])    
