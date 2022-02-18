@@ -1,6 +1,5 @@
 module Display(Bx,By,Bz,Dtype) {
- hole_size = 2; //default holes size for pcb
- 
+    hole_size = 2; //default holes size for pcb
     translate([-47,-8,-6]) cube ([47,12,6]);
     translate([-47,0,-6]) cube ([8,By,6]);
     translate([-47,By-5,-6]) cube ([47,12,6]);
@@ -11,7 +10,7 @@ module Display(Bx,By,Bz,Dtype) {
 	
 	difference () {
 		roundedcube([By+20,90,20], true,3, "all");
-		if (Long<165) alert(1,"Display"); else {  //alert for insuficient lenght
+		if (By<125) alert(1,"Display"); else {  //alert for insuficient lenght
 			
 			translate([0,-4.9,-10]) cube ([By,70,20],center=true); // cylinder(h=8,d=30.1,$fn=80);  
 			rotate ([-45,0,0]) translate([-By/2-20,0,29]) cube ([By+30,40.2,10]); // crop top	
@@ -36,7 +35,7 @@ module Display(Bx,By,Bz,Dtype) {
 			}
 		}
         	if (PWR_button) {
-			if (Long<200) alert(1,"Power_button"); else {//alert for insuficient lenght
+			if (By<150) alert(1,"Power_button"); else {//alert for insuficient lenght
 				translate([-By/2+138,-22.5,0])  // Power button 
 				union () {
 					translate([0,0,8.5]) cylinder(h=1.5,d=18.1,$fn=80);
@@ -50,7 +49,7 @@ module Display(Bx,By,Bz,Dtype) {
 			}
 		}
 		if (Fan_c) {
-			if (Long<200) alert(1,"fan_control_1"); else {//alert for insuficient lenght
+			if (By<150) alert(1,"fan_control_1"); else {//alert for insuficient lenght
 				translate([-By/2+138,20,2])  // fan controller
 				union () {
 					translate([0,0,4.5]) cylinder(h=6,d=16,$fn=80);
@@ -60,7 +59,7 @@ module Display(Bx,By,Bz,Dtype) {
 			}
         }
 		if (Fan_c>=2) {
-			if (Long<225) alert(1,"fan_control_2"); else {//alert for insuficient lenght
+			if (By<180) alert(1,"fan_control_2"); else {//alert for insuficient lenght
 				translate([-By/2+168,20,2])  // fan controller
 				union () {
 					translate([0,0,4.5]) cylinder(h=6,d=16,$fn=80);
@@ -70,7 +69,7 @@ module Display(Bx,By,Bz,Dtype) {
 			}
         }
 		if (Fan_c>=3) {
-			if (Long<255) alert(1,"fan_control_3"); else {//alert for insuficient lenght
+			if (By<210) alert(1,"fan_control_3"); else {//alert for insuficient lenght
 				translate([-By/2+198,20,2])  // fan controller
 				union () {
 					translate([0,0,4.5]) cylinder(h=6,d=16,$fn=80);
@@ -80,7 +79,7 @@ module Display(Bx,By,Bz,Dtype) {
 			}
         }
 		if (Fan_c>=4) {
-			if (Long<280) alert(1,"fan_control_4"); else {//alert for insuficient lenght
+			if (By<240) alert(1,"fan_control_4"); else {//alert for insuficient lenght
 				translate([-By/2+228,20,2])  // fan controller
 				union () {
 					translate([0,0,4.5]) cylinder(h=6,d=16,$fn=80);
