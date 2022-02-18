@@ -38,12 +38,9 @@ if (Ctype==1) {
 
 module SSR(Cx,Cy,Cz,Rtype) { //Solid State Relays
 	if (Rtype==0)  alert(5,"SSR");
-	if (Texture==0)  alert(5,"Texture");
+	translate([-19,10,-6]) rotate([270,0,90]) tolelarmes(Cy-40,Cz-12,5,2,1.2);
 	if (Rtype==1||Rtype==3) {
 		union () {
-			if (Texture==2) {translate([-16,10+(Cy-40)/2,-Cz/2]) rotate([90,0,90]) hexpattern(Cy-40,CZ-12, 6);}
-			if (Texture==1) {translate([-16,10,6-Cz]) rotate([0,0,90]) brickface(Cy-40,CZ-12, 8, 4, 1, 3);}
-			if (Texture==3) {translate([-19,10,-6]) rotate([270,0,90]) tolelarmes(Cy-40,Cz-12,5,2,1.2);}
 			ssrfix(-16,Cy*.5-10,-Cz*.5+22.5);
 			ssrfix(-16,Cy*.5-10,-Cz*.5-22.5);  
 			if (Rtype==3) {
@@ -58,15 +55,12 @@ module SSR(Cx,Cy,Cz,Rtype) { //Solid State Relays
 	}
 	if (Rtype==2||Rtype==4) {
 		union () {
-			if (Texture==2) {translate([-16,10+(Cy-40)/2,-Cz/2]) rotate([90,0,90]) hexpattern(Cy-40,CZ-12, 6);}
-			if (Texture==1) {translate([-16,10,6-Cz]) rotate([0,0,90]) brickface(Cy-40,CZ-12, 8, 4, 1, 3);}
-			if (Texture==3) {translate([-19,10,-6]) rotate([270,0,90]) tolelarmes(Cy-40,Cz-12,5,2,1.2);}
 			ssrfix(-16,Cy*.5-10+23,-Cz*.5+22.5);
 			ssrfix(-16,Cy*.5-10+23,-Cz*.5-22.5);
 			ssrfix(-16,Cy*.5-10-23,-Cz*.5+22.5);
 			ssrfix(-16,Cy*.5-10-23,-Cz*.5-22.5);
 			if (Rtype==4) {
-				if (Cy<160) alert(1,"SSR"); else {//alert for inssuficient lenght
+				if (Long<200) alert(1,"SSR"); else {//alert for inssuficient lenght
 					ssrfix(-16,Cy*.5-10+69,-Cz*.5+22.5);
 					ssrfix(-16,Cy*.5-10+69,-Cz*.5-22.5);
 					ssrfix(-16,Cy*.5-10-69,-Cz*.5+22.5);
@@ -81,11 +75,9 @@ module SSR(Cx,Cy,Cz,Rtype) { //Solid State Relays
 }
 
 module MKSPWC(Cx,Cy,Cz,Rtype) { //MKS power switch module
-	if (Cy<120) alert(1,"MKS_PWC"); else {//alert for inssuficient lenght
+	if (Long<160) alert(1,"MKS_PWC"); else {//alert for inssuficient lenght
 		union () {
-			if (Texture==2) {translate([-16,10+(Cy-40)/2,-Cz/2]) rotate([90,0,90]) hexpattern(Cy-40,CZ-12, 6);}
-			if (Texture==1) {translate([-16,10,6-Cz]) rotate([0,0,90]) brickface(Cy-40,CZ-12, 8, 4, 1, 3);}
-			if (Texture==3) {translate([-19,10,-6]) rotate([270,0,90]) tolelarmes(Cy-40,Cz-12,5,2,1.2);}
+			translate([-19,10,-6]) rotate([270,0,90]) tolelarmes(Cy-40,Cz-12,5,2,1.2);
 			ssrfix(-16,Cy*.5-46,-Cz*.5+21,2.5);
 			ssrfix(-16,Cy*.5-46,-Cz*.5-21,2.5);  
 			ssrfix(-16,Cy*.5+26,-Cz*.5+21,2.5);
@@ -94,6 +86,7 @@ module MKSPWC(Cx,Cy,Cz,Rtype) { //MKS power switch module
 		}
 	}
 }
+
 
 
 module ssrfix(x,y,z,diam=4) {
