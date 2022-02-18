@@ -66,7 +66,7 @@ module SSR(Cx,Cy,Cz,Rtype) { //Solid State Relays
 			ssrfix(-16,Cy*.5-10-23,-Cz*.5+22.5);
 			ssrfix(-16,Cy*.5-10-23,-Cz*.5-22.5);
 			if (Rtype==4) {
-				if (Long<200) alert(1,"SSR"); else {//alert for inssuficient lenght
+				if (Cy<160) alert(1,"SSR"); else {//alert for inssuficient lenght
 					ssrfix(-16,Cy*.5-10+69,-Cz*.5+22.5);
 					ssrfix(-16,Cy*.5-10+69,-Cz*.5-22.5);
 					ssrfix(-16,Cy*.5-10-69,-Cz*.5+22.5);
@@ -81,7 +81,7 @@ module SSR(Cx,Cy,Cz,Rtype) { //Solid State Relays
 }
 
 module MKSPWC(Cx,Cy,Cz,Rtype) { //MKS power switch module
-	if (Long<160) alert(1,"MKS_PWC"); else {//alert for inssuficient lenght
+	if (Cy<120) alert(1,"MKS_PWC"); else {//alert for inssuficient lenght
 		union () {
 			if (Texture==2) {translate([-16,10+(Cy-40)/2,-Cz/2]) rotate([90,0,90]) hexpattern(Cy-40,CZ-12, 6);}
 			if (Texture==1) {translate([-16,10,6-Cz]) rotate([0,0,90]) brickface(Cy-40,CZ-12, 8, 4, 1, 3);}
@@ -102,4 +102,16 @@ module ssrfix(x,y,z,diam=4) {
 		cylinder(h=10,d=12,$fn=80);  
 		translate([0,0,-0.01]) cylinder(h=11,d=diam,$fn=80);  
 	}
+}
+
+module PSUFix(Fx,Fy,Fz,Ftype,Tet=0) {
+  translate([1,0,Fz]) rotate([270,0,90]) tolelarmes(Fy,Fz,5,2,1.2);
+  if (Ftype==0) {//PSU DS 150 24
+    if (Fy<260) alert(1,"PSU DS 150 24"); else {//alert for inssuficient lenght
+		translate([6,(Fy/2+123),Fz/2+10]) rotate([0,90,0]) pcb_support();
+		translate([6,(Fy/2+123),Fz/2-28]) rotate([0,90,0]) pcb_support();
+		translate([6,(Fy/2-123),Fz/2+10]) rotate([0,90,0]) pcb_support();
+		translate([6,(Fy/2-123),Fz/2-28]) rotate([0,90,00]) pcb_support();   
+    }
+  } 
 }
