@@ -11,7 +11,7 @@ module Rehausse(ParoieX,ParoieY,ParoieZ,texture=0,pieces=0) {
     if (pieces==302) {translate([-20,10,6-ParoieZ]) Connecteur(ParoieX,ParoieY-40,ParoieZ-12,0);}
 	if (pieces==341) SSR(ParoieX,ParoieY,ParoieZ,SSRelays);
 	if (pieces==351) MKSPWC(ParoieX,ParoieY,ParoieZ,1);
-    if (pieces>=400 && pieces<500) {translate([-20,10,6-ParoieZ]) Fix(ParoieX,ParoieY-40,ParoieZ-12,pieces-400,texture);}
+    if (pieces>=400 && pieces<500) {translate([-20,10,6-ParoieZ]) PSUFix(ParoieX,ParoieY-40,ParoieZ-12,pieces-400,texture);}
     if (pieces==500) {translate([-20,10,6-ParoieZ]) Board(ParoieX,ParoieY-40,ParoieZ-12,MBoard);}
     if (pieces==501) {translate([-20,10,6-ParoieZ]) Display(ParoieX,ParoieY-40,ParoieZ-12,Display);}
     if (pieces>=600) {translate([-20,10,6-ParoieZ]) Tiroir(ParoieX,ParoieY-40,ParoieZ-12,texture);}
