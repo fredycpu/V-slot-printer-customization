@@ -14,7 +14,7 @@ FabreP = 1; // [1:oui, 0:non]
 Larg = 1;// [1:20, 2:40]
 Long = 200;
 Haut = 70;
-/* Hardware (mainboard display buttons etc */
+/* [Hardware (mainboard display buttons etc] */
 //Carte mêre
 MBoard = 0; // [0:MKS Robin 2 v1,1:MKS robin,2:MKS robin Pro, 3:MKS Robin nano 2, 4:MKS Robin nano 3]
 //Display type
@@ -34,11 +34,11 @@ Prin = 3; // [0:Ne pas afficher,1:CR-10, 3:CR-10S,4:CR-10S4, 5:CR-10S5,2:Ender]
 //Presntation
 Pres = 0; // [0:Ne pas afficher,1:afficher l'imprimante,2:affciher les pieces de démonstration,3:afficher les pieces et l'imprimante]
 // habillage CR-10S
-CR10A = [[Haut,Texture,3],[100,20,0],[200,500,0],[200,20,0],[320,400,0],[160,301,0],[140,100,0],[200,20,0],[120,20,0],[200,501,0]]; 
+CR10A = [[Haut,Texture,3],[20,0,0],[80,20,0],[200,500,0],[200,341,0],[320,400,0],[160,301,0],[140,351,0],[200,20,0],[160,20,0],[200,501,0]]; 
 // habillage CR-10S4
 CR10B = [[Haut,Texture,3],[200,20,0],[200,500,0],[200,20,0],[128,20,0],[320,400,0],[160,301,0],[140,100,0],[300,20,0],[228,20,0],[200,501,0]]; 
 // habillage CR-10S5
-CR10C = [[Haut,Texture,3],[200,20,0],[200,500,0],[300,20,0],[200,20,0],[320,400,0],[160,301,0],[140,100,0],[200,20,0],[200,20,0],[120,20,0],[200,20,0],[200,501,0]];
+CR10C = [[Haut,Texture,3],[200,20,0],[200,500,0],[300,20,0],[200,20,0],[320,400,0],[160,301,0],[140,351,0],[200,20,0],[200,20,0],[220,20,0],[300,501,0]];
 
 /* [Hidden]*/
 
