@@ -78,15 +78,14 @@ module MKSPWC(Cx,Cy,Cz,Rtype) { //MKS power switch module
 	if (Long<160) alert(1,"MKS_PWC"); else {//alert for inssuficient lenght
 		union () {
 			translate([-19,10,-6]) rotate([270,0,90]) tolelarmes(Cy-40,Cz-12,5,2,1.2);
-			ssrfix(-16,Cy*.5-46,-Cz*.5+21,2.5);
-			ssrfix(-16,Cy*.5-46,-Cz*.5-21,2.5);  
-			ssrfix(-16,Cy*.5+26,-Cz*.5+21,2.5);
-			ssrfix(-16,Cy*.5+26,-Cz*.5-21,2.5);  
+			ssrfix(-16,Cy*.5-46,-Cz*.5+21,2);
+			ssrfix(-16,Cy*.5-46,-Cz*.5-21,2);  
+			ssrfix(-16,Cy*.5+26,-Cz*.5+21,2);
+			ssrfix(-16,Cy*.5+26,-Cz*.5-21,2);  
 			if (FabreP) translate([-19.8, 30 , Cz-73]) rotate([90,0,-90]) color("white") letter("MKS PWC");
 		}
 	}
 }
-
 
 
 module ssrfix(x,y,z,diam=4) {
