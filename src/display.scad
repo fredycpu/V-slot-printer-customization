@@ -1,5 +1,6 @@
 module Display(Bx,By,Bz,Dtype) {
-    hole_size = 2; //default holes size for pcb
+	if (Bz>60) translate([1,0,Bz]) rotate([270,0,90]) tolelarmes(By,Bz-62,5,2,1.2);
+	hole_size = 1.5; //default holes size for pcb
     translate([-47,-8,-6]) cube ([47,12,6]);
     translate([-47,0,-6]) cube ([8,By,6]);
     translate([-47,By-5,-6]) cube ([47,12,6]);
@@ -7,16 +8,12 @@ module Display(Bx,By,Bz,Dtype) {
     translate([0,-8,-2]) rotate ([-90,-180,00]) wedge(90, 45, 65, 5);
     translate([-20,By/2,35])
 	rotate ([45,0,-90])
-	
 	difference () {
 		roundedcube([By+20,90,20], true,3, "all");
-		if (By<125) alert(1,"Display"); else {  //alert for insuficient lenght
-			
+		if (Long<165) alert(1,"Display"); else {  //alert for insuficient lenght
 			translate([0,-4.9,-10]) cube ([By,70,20],center=true); // cylinder(h=8,d=30.1,$fn=80);  
-			rotate ([-45,0,0]) translate([-By/2-20,0,29]) cube ([By+30,40.2,10]); // crop top	
+			if (Bz<61) rotate ([-45,0,0]) translate([-By/2-20,0,29]) cube ([By+30,40.2,10]); // crop top	
 			rotate ([-45,0,0]) translate([-By/2-20,20.5,3]) cube ([By+30,40.2,60]); // crop end	
-			
-		
 			translate([-By/2,30,-16])  rotate ([90,0,90])wedge(90, 18,18, By);
 			translate([-By/2,-35,0])    
 			union () {
@@ -34,8 +31,8 @@ module Display(Bx,By,Bz,Dtype) {
 				translate([121,61,-1]) cylinder(h=10,d=hole_size,$fn=80);//pcb holes
 			}
 		}
-        	if (PWR_button) {
-			if (By<150) alert(1,"Power_button"); else {//alert for insuficient lenght
+        if (PWR_button) {
+			if (By<140) alert(1,"Power_button"); else {//alert for insuficient lenght
 				translate([-By/2+138,-22.5,0])  // Power button 
 				union () {
 					translate([0,0,8.5]) cylinder(h=1.5,d=18.1,$fn=80);
